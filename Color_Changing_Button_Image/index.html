@@ -1,0 +1,123 @@
+/*Design following responsive layout using html.
+Use header, footer, div and appropriate tags*/
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;  /* Light gray background to distinguish the container */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px;
+            border: 2px solid #000;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);  /* Subtle shadow for better visibility */
+        }
+
+        .text-section {
+            min-height: 200px;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            line-height: 1.5;
+            border-bottom: 1px solid #000;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .text-section:hover {
+            opacity: 0.9;
+        }
+
+        .button-section {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            border-top: 1px solid #000;
+        }
+
+        .color-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .color-button:hover {
+            transform: scale(1.1);
+        }
+
+        .blue-button {
+            background-color: #4169E1;
+        }
+
+        .orange-button {
+            background-color: #FFA500;
+        }
+
+        .green-button {
+            background-color: #3CB371;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-section" id="colorSection" onclick="getRandomColor()">
+            <div>
+                This section should change colour after<br>
+                clicking on following buttons
+            </div>
+        </div>
+        <div class="button-section">
+            <button class="color-button blue-button" onclick="changeColor('#4169E1')"></button>
+            <button class="color-button orange-button" onclick="changeColor('#FFA500')"></button>
+            <button class="color-button green-button" onclick="changeColor('#3CB371')"></button>
+        </div>
+    </div>
+
+    <script>
+        function changeColor(color) {
+            document.getElementById('colorSection').style.backgroundColor = color;
+        }
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            document.getElementById('colorSection').style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>
