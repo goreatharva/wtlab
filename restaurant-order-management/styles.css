@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menu-item {
+    background: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    flex: 1 1 calc(30% - 40px); /* Responsive columns */
+}
+
+.menu-item h2 {
+    margin-top: 0;
+}
